@@ -1,0 +1,279 @@
+@font-face {
+    font-family: 'Gilroy';
+    src: url("font/Gilroy-Regular.woff") format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gilroy Bold';
+    src: url("font/Gilroy-Bold.woff") format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    font-size: 16px;
+    background: #222;
+    font-family: 'Gilroy', Helvetica, Arial, sans-serif;
+}
+
+img {
+    max-width: 100%;
+    display: flex;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+strong {
+    font-family: 'Gilroy Bold';
+}
+
+fieldset {
+    border: none;
+    outline: none;
+}
+
+input {
+    border: none;
+    outline: none;
+    -webkit-user-select: auto;
+    -moz-user-select: auto;
+    -ms-user-select: auto;
+    user-select: auto;
+}
+
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+button {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background: transparent;
+}
+
+.budget-container {
+    width: 360px;
+    height: 100vh;
+    position: fixed;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    background: #34006a;
+}
+
+.budget-header {
+    padding: 1.5rem;
+    display: block;
+}
+
+.balance {
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.balance .title {
+    font-size: 1.2em;
+    color: #fff;
+    font-family: 'Gilroy Bold';
+    margin-bottom: .375rem;
+}
+
+.balance .value {
+    font-size: 2em;
+    color: #fff;
+    font-family: 'Gilroy Bold'
+}
+
+.account {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.account .title {
+    font-size: 1.2em;
+    color: #fff;
+    opacity: .5;
+    margin-bottom: .175rem;
+}
+
+.income-total {
+    color: #fff;
+    font-family: 'Gilroy Bold';
+}
+
+.outcome-total {
+    color: #f0624d;
+    font-family: 'Gilroy Bold';
+}
+
+.chart {
+    width: 3rem;
+    height: 3rem;
+}
+
+.budget-dashboard {
+    width: 360px;
+    max-height: 70vh;
+    height: 100%;
+    background: #fff;
+    border-radius: 1.875rem 1.875rem 0 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.budget-dashboard-header {
+    padding: 1.5rem;
+}
+
+.dash-title {
+    font-size: 1.7em;
+    color: #1a0034;
+    font-family: 'Gilroy Bold';
+    margin-bottom: .75rem;
+}
+
+.toggle {
+    display: flex;
+    gap: 1.75rem;
+}
+
+.tab1, .tab2, .tab3 {
+    cursor: pointer;
+    color: #1a0034;
+    opacity: .4;
+    font-family: 'Gilroy Bold';
+    font-size: 1.2em;
+}
+
+.active {
+    opacity: 1;
+}
+
+.hide {
+    display: none;
+}
+
+.budget-dashboard .income, .budget-dashboard .expense, .budget-dashboard .all {
+    position: relative;
+    width: 100%;
+}
+
+.list {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: scroll;
+}
+
+.list li {
+    position: relative;
+    display: flex;
+    align-items: center;
+    font-size: 1em;
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.list li .entry {
+    width: 250px;
+    height: auto;
+    word-wrap: break-word;
+}
+
+.list li #edit {
+    position: absolute;
+    width: 1.25rem;
+    height: 1.25rem;
+    right: 3rem;
+    cursor: pointer;
+    background: url("images/edit.svg") no-repeat;
+    background-size: 1.25rem 1.25rem;
+}
+
+.list li #delete {
+    position: absolute;
+    width: 1.25rem;
+    height: 1.25rem;
+    right: 1.25rem;
+    cursor: pointer;
+    background: url("images/delete.svg") no-repeat;
+    background-size: 1.25rem 1.25rem;
+}
+
+.list li.expense {
+    color: #f0624d;
+}
+
+form {
+    width: 100%;
+    position: fixed;
+    bottom: 2.675rem;
+    left: 0;
+    padding: 1.5rem .875rem;
+    background: #fff;
+    z-index: 2;
+}
+
+.input {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+}
+
+.income-title-input, .expense-title-input {
+    font-size: 1.1em;
+    border-bottom: 1px solid #ccc;
+    width: 60%;
+    padding: .125rem .25rem;
+}
+
+.income-amount-input, .expense-amount-input {
+    font-size: 1.1em;
+    border-bottom: 1px solid #ccc;
+    width: 40%;
+    padding: .125rem .25rem;
+    position: relative;
+}
+
+.add-income, .add-expense {
+    color: #1a0034;
+}
+
+.add-income img, .add-expense img {
+    display: flex;
+}
+
+@media (min-width: 600px) {
+    form {
+        bottom: 0;
+    }
+}

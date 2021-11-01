@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget App Tutorial</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="budget-container">
+        <section class="budget-header">
+            <article class="balance">
+                <h2 class="title">Balance</h2>
+                <h3 class="value"></h3>
+            </article>
+            <article class="account">
+                <aside class="income">
+                    <h2 class="title">Income</h2>
+                    <h3 class="income-total"></h3>
+                </aside>
+                <aside class="chart"></aside>
+                <aside class="outcome">
+                    <h2 class="title">Outcome</h2>
+                    <h3 class="outcome-total"></h3>
+                </aside>
+            </article>
+        </section>
+        <section class="budget-dashboard">
+            <article class="budget-dashboard-header">
+                <h1 class="dash-title">Dashboard</h1>
+                <aside class="toggle">
+                    <button class="tab1" type="button">Income</button>
+                    <button class="tab2" type="button">Expense</button>
+                    <button class="tab3 active" type="button">All</button>
+                </aside>
+            </article>
+            <article class="hide income" id="income">
+                <ul class="list"></ul>
+                <form>
+                    <fieldset class="input">
+                        <input type="text" id="income-title-input" class="income-title-input" name="title" placeholder="Income">
+                        <input type="number" id="income-amount-input" class="income-amount-input" name="amount" placeholder="$0">
+                        <button class="add-income" type="submit"><img src="images/add.svg" alt="Add income"></button>
+                    </fieldset>
+                </form>
+            </article>
+            <article class="hide expense" id="expense">
+                <ul class="list"></ul>
+                <form>
+                    <fieldset class="input">
+                        <input type="text" id="expense-title-input" class="expense-title-input" name="title" placeholder="Expense">
+                        <input type="number" id="expense-amount-input" class="expense-amount-input" name="amount" placeholder="$0">
+                        <button class="add-expense" type="submit"><img src="images/add.svg" alt="Add expense"></button>
+                    </fieldset>
+                </form>
+            </article>
+            <article class="all" id="all">
+                <ul class="list"></ul>
+            </article>
+        </section>
+    </main>
+    <script src="chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
