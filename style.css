@@ -1,3 +1,9 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 @font-face {
     font-family: 'Gilroy';
     src: url("font/Gilroy-Regular.woff") format('woff');
@@ -12,12 +18,6 @@
     font-style: normal;
 }
 
-*, *::before, *::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
 html {
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
@@ -30,7 +30,7 @@ body {
     font-family: 'Gilroy', Helvetica, Arial, sans-serif;
 }
 
-img {
+img, canvas {
     max-width: 100%;
     display: flex;
 }
@@ -51,6 +51,10 @@ strong {
 fieldset {
     border: none;
     outline: none;
+}
+
+label {
+    display: none;
 }
 
 input {
@@ -79,7 +83,8 @@ button {
 }
 
 .budget-container {
-    width: 360px;
+    max-width: 375px;
+    width: 100%;
     height: 100vh;
     position: fixed;
     left: 50%;
@@ -89,7 +94,7 @@ button {
 }
 
 .budget-header {
-    padding: 1.5rem;
+    padding: 2rem 1.5rem 1.5rem 1.5rem;
     display: block;
 }
 
@@ -102,11 +107,11 @@ button {
     font-size: 1.2em;
     color: #fff;
     font-family: 'Gilroy Bold';
-    margin-bottom: .375rem;
+    margin-bottom: .325rem;
 }
 
 .balance .value {
-    font-size: 2em;
+    font-size: 2.25em;
     color: #fff;
     font-family: 'Gilroy Bold'
 }
@@ -115,6 +120,7 @@ button {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: relative;
 }
 
 .account .title {
@@ -135,12 +141,15 @@ button {
 }
 
 .chart {
-    width: 3rem;
-    height: 3rem;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .budget-dashboard {
-    width: 360px;
+    max-width: 375px;
+    width: 100%;
     max-height: 70vh;
     height: 100%;
     background: #fff;
@@ -151,7 +160,7 @@ button {
 }
 
 .budget-dashboard-header {
-    padding: 1.5rem;
+    padding: 2rem 1.5rem 1.5rem 1.5rem;
 }
 
 .dash-title {
@@ -182,14 +191,8 @@ button {
     display: none;
 }
 
-.budget-dashboard .income, .budget-dashboard .expense, .budget-dashboard .all {
-    position: relative;
-    width: 100%;
-}
-
 .list {
     width: 100%;
-    overflow-x: auto;
     overflow-y: scroll;
 }
 
@@ -197,47 +200,38 @@ button {
     position: relative;
     display: flex;
     align-items: center;
-    font-size: 1em;
+    font-size: 1.25em;
     padding-left: 1.5rem;
     margin-bottom: 1rem;
 }
 
-.list li .entry {
-    width: 250px;
-    height: auto;
-    word-wrap: break-word;
-}
-
-.list li #edit {
+.list li .edit {
     position: absolute;
     width: 1.25rem;
     height: 1.25rem;
-    right: 3rem;
+    right: 3.5rem;
     cursor: pointer;
     background: url("images/edit.svg") no-repeat;
     background-size: 1.25rem 1.25rem;
 }
 
-.list li #delete {
+.list li .delete {
     position: absolute;
     width: 1.25rem;
     height: 1.25rem;
-    right: 1.25rem;
+    right: 1rem;
     cursor: pointer;
     background: url("images/delete.svg") no-repeat;
     background-size: 1.25rem 1.25rem;
 }
 
-.list li.expense {
-    color: #f0624d;
-}
-
 form {
+    max-width: 375px;
     width: 100%;
     position: fixed;
-    bottom: .25rem;
     left: 0;
-    padding: 1.5rem .875rem;
+    bottom: 3rem;
+    padding: 1.25rem .75rem;
     background: #fff;
     z-index: 2;
 }
@@ -250,22 +244,29 @@ form {
 }
 
 .income-title-input, .expense-title-input {
-    font-size: 1.1em;
+    font-size: 1.125em;
     border-bottom: 1px solid #ccc;
-    width: 60%;
+    width: 65%;
     padding: .125rem .25rem;
+}
+
+.income-title-input:focus, .expense-title-input:focus {
+    border-bottom: 1px solid #34006a;
 }
 
 .income-amount-input, .expense-amount-input {
-    font-size: 1.1em;
+    font-size: 1.125em;
     border-bottom: 1px solid #ccc;
-    width: 40%;
+    width: 35%;
     padding: .125rem .25rem;
-    position: relative;
+}
+
+.income-amount-input:focus, .expense-amount-input:focus {
+    border-bottom: 1px solid #34006a;
 }
 
 .add-income, .add-expense {
-    color: #1a0034;
+    background: #34006a;
 }
 
 .add-income img, .add-expense img {
@@ -273,6 +274,10 @@ form {
 }
 
 @media (min-width: 600px) {
+    .budget-dashboard {
+        height: 65vh;
+    }
+
     form {
         bottom: 0;
     }

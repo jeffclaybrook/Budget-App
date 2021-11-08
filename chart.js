@@ -1,8 +1,8 @@
 const chart = document.querySelector(".chart");
 
 const canvas = document.createElement("canvas");
-canvas.width = 50;
-canvas.height = 50;
+canvas.width = 60;
+canvas.height = 60;
 
 chart.appendChild(canvas);
 
@@ -10,7 +10,7 @@ const ctx = canvas.getContext("2d");
 
 ctx.lineWidth = 8;
 
-const R = 20;
+const R = 24;
 
 function drawCircle(color, ratio, anticlockwise){
 
@@ -20,7 +20,7 @@ function drawCircle(color, ratio, anticlockwise){
     ctx.stroke();
 }
 
-function updateChart( income, outcome){
+function updateChart(income, outcome){
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     let ratio = income / (income+outcome);

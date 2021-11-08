@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#536DFE">
+    <meta name="theme-color" content="#34006a">
     <meta name="description" content="Budget App">
     <title>Budget App</title>
     <link rel="manifest" href="manifest.json" crossorigin="use-credentials">
@@ -21,7 +21,7 @@
     <main class="budget-container">
         <section class="budget-header">
             <article class="balance">
-                <h2 class="title">Balance</h2>
+                <h1 class="title">Current Balance</h1>
                 <h3 class="value"></h3>
             </article>
             <article class="account">
@@ -31,41 +31,45 @@
                 </aside>
                 <aside class="chart"></aside>
                 <aside class="outcome">
-                    <h2 class="title">Outcome</h2>
+                    <h2 class="title">Expense</h2>
                     <h3 class="outcome-total"></h3>
                 </aside>
             </article>
         </section>
         <section class="budget-dashboard">
             <article class="budget-dashboard-header">
-                <h1 class="dash-title">Dashboard</h1>
+                <h2 class="dash-title">Balance Sheet</h2>
                 <aside class="toggle">
-                    <button class="tab1" type="button">Income</button>
-                    <button class="tab2" type="button">Expense</button>
+                    <button class="tab1" type="button">Expense</button>
+                    <button class="tab2" type="button">Income</button>
                     <button class="tab3 active" type="button">All</button>
                 </aside>
             </article>
-            <article class="hide income" id="income">
+            <article class="hide" id="income">
                 <ul class="list"></ul>
                 <form>
                     <fieldset class="input">
-                        <input type="text" id="income-title-input" class="income-title-input" name="title" placeholder="Income">
-                        <input type="number" id="income-amount-input" class="income-amount-input" name="amount" placeholder="$0">
+                        <label for="income-title-input">Income</label>
+                        <input type="text" id="income-title-input" class="income-title-input" name="Income title" placeholder="Income">
+                        <label for="income-amount-input">Amount</label>
+                        <input type="number" id="income-amount-input" class="income-amount-input" name="Income amount" placeholder="$0.00">
                         <button class="add-income" type="submit"><img src="images/add.svg" alt="Add income"></button>
                     </fieldset>
                 </form>
             </article>
-            <article class="hide expense" id="expense">
+            <article class="hide" id="expense">
                 <ul class="list"></ul>
                 <form>
                     <fieldset class="input">
-                        <input type="text" id="expense-title-input" class="expense-title-input" name="title" placeholder="Expense">
-                        <input type="number" id="expense-amount-input" class="expense-amount-input" name="amount" placeholder="$0">
+                        <label for="expense-title-input">Expense</label>
+                        <input type="text" id="expense-title-input" class="expense-title-input" name="Expense title" placeholder="Expense">
+                        <label for="expense-amount-input">Amount</label>
+                        <input type="number" id="expense-amount-input" class="expense-amount-input" name="Expense amount" placeholder="$0.00">
                         <button class="add-expense" type="submit"><img src="images/add.svg" alt="Add expense"></button>
                     </fieldset>
                 </form>
             </article>
-            <article class="all" id="all">
+            <article id="all">
                 <ul class="list"></ul>
             </article>
         </section>
